@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import ".//globals.css";
+import { Toaster } from "@/components/ui/sonner"
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,10 +15,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Signalist",
-  description: "Track real-time stock prices, get personalized alerts, and stay ahead in the market with Signalist.",
+  description: "Track real-time stock prices, get personalized alerts and explore detailed company insights.",
 };
 
-export default function AppLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -28,6 +29,7 @@ export default function AppLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );
